@@ -1,0 +1,10 @@
+{
+  "codeAssist": {
+    "clientId": "your-google-oauth-client-id",
+    "clientSecret": "your-google-oauth-client-secret"
+  },
+  "antigravity": {
+    "clientId": "your-antigravity-oauth-client-id",
+    "clientSecret": "your-antigravity-oauth-client-secret"
+  }
+}

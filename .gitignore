@@ -1,0 +1,15 @@
+node_modules/
+dist/
+*.tgz
+.DS_Store
+
+# Never commit credentials or local OpenCode state
+auth.json
+.env
+.env.*
+!.env.example
+*.log
+
+# Local public OAuth clients. Included in npm packages when present, never committed.
+oauth-clients.json
+oauth-clients.local.json

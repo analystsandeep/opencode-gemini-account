@@ -1,0 +1,97 @@
+{
+  "name": "opencode-gemini-account",
+  "version": "0.1.0",
+  "description": "Sign in with Google in OpenCode and use Gemini models with your Google account plan. No Gemini API key. Browser OAuth, eligibility checks, model discovery, and a doctor CLI.",
+  "license": "MIT",
+  "author": "OpenCode Gemini Account contributors",
+  "homepage": "https://github.com/analystsandeep/opencode-gemini-account#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/analystsandeep/opencode-gemini-account.git"
+  },
+  "bugs": {
+    "url": "https://github.com/analystsandeep/opencode-gemini-account/issues"
+  },
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "gemini",
+    "google",
+    "oauth",
+    "code-assist",
+    "antigravity",
+    "authentication"
+  ],
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./server": {
+      "types": "./dist/v2/index.d.ts",
+      "import": "./dist/v2/index.js",
+      "default": "./dist/v2/index.js"
+    },
+    "./v2": {
+      "types": "./dist/v2/index.d.ts",
+      "import": "./dist/v2/index.js",
+      "default": "./dist/v2/index.js"
+    },
+    "./core": {
+      "types": "./dist/core.d.ts",
+      "import": "./dist/core.js",
+      "default": "./dist/core.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "opencode-gemini-account": "./dist/cli.js",
+    "ogac": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "server.js",
+    "oauth-clients.json",
+    "oauth-clients.example.json",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md",
+    "SECURITY.md",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "tsc -p tsconfig.build.json && node -e \"require('node:fs').chmodSync('dist/cli.js',0o755)\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test",
+    "check": "npm run typecheck && npm test",
+    "prepack": "npm run build",
+    "doctor": "node dist/cli.js doctor"
+  },
+  "peerDependencies": {
+    "@opencode-ai/plugin": ">=1.0.0",
+    "@opencode/plugin": ">=2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@opencode-ai/plugin": {
+      "optional": true
+    },
+    "@opencode/plugin": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.0.0",
+    "@opencode/plugin": "2.1.2",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}
